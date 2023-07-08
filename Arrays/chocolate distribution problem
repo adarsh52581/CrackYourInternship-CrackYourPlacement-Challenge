@@ -1,0 +1,24 @@
+"""Given an array of N integers where each value represents the number of chocolates in a packet. Each packet can have a variable number of chocolates.
+There are m students, the task is to distribute chocolate packets such that: 
+Each student gets one packet.
+The difference between the number of chocolates in the packet with maximum chocolates and the packet with minimum chocolates given to the students is minimum."""
+def minDifference(arr, m):
+    n = len(arr)
+    if n < m:
+        return -1  # Not enough packets to distribute to students
+
+    arr.sort()  # Sort the array in ascending order
+
+    min_diff = float('inf')  # Initialize min_diff to infinity
+
+    start_index = 0
+    end_index = m - 1
+
+    while end_index < n:
+        diff = arr[end_index] - arr[start_index]  # Calculate difference between max and min packets in the current window
+        if diff < min_diff:
+            min_diff = diff
+        start_index += 1
+        end_index += 1
+
+    return min_diff
