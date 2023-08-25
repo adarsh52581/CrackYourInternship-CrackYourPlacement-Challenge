@@ -1,0 +1,27 @@
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+q = int(input())
+stackpush = []
+stackdelete=[]
+for _ in range(q):
+    choice= list(input().split())
+    if choice[0]=='1':
+        #enqueue
+        stackpush.append(choice[1])
+        
+    elif choice[0]=='2':
+        #dequeue
+        if not stackdelete:
+            while stackpush:
+                stackdelete.append(stackpush.pop())
+        stackdelete.pop()
+        
+    else:
+        #pop the front
+        if not stackdelete:
+            while stackpush:
+                stackdelete.append(stackpush.pop())
+        print(stackdelete[-1])
+# Idea 
+# 1. Create two stacks --one for enqueue and other for dequeue--to invert the elemenst are pop or print the top element
+# 2. take the input and store it as a string list, then identify the query and carry out the operation
+# 3. reference: https://www.youtube.com/watch?v=EUNGb8PMoCc
