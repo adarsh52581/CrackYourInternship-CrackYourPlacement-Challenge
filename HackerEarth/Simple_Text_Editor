@@ -1,0 +1,26 @@
+# Implement a simple text editor. The editor initially contains an empty string, . Perform  operations of the following  types:
+
+# append - Append string  to the end of .
+# delete - Delete the last  characters of .
+# print - Print the  character of .
+# undo - Undo the last (not previously undone) operation of type  or , reverting  to the state it was in prior to that operation.
+q=int(input())
+S =""
+last_s=[]
+
+for _ in range(q):
+    t=list(input().split())
+    if t[0]=='1':
+        last_s.append(S)
+        S=S+t[1]
+    elif t[0]=='2':
+        last_s.append(S)
+        S=S[:-int(t[1])]
+    elif t[0]=='3':
+        k = int(t[1])-1
+        print(S[k])
+    else:
+        S=last_s.pop()
+# Steps
+# 1. Same as stack using 2 queues algo
+# 2. Implement the menu driven if-else clause
