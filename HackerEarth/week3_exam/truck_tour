@@ -1,0 +1,11 @@
+#program to find the smallest index from which the transit can be begin
+#refer: https://www.youtube.com/watch?v=gUZ7fMqxETI
+
+def truckTour(petrolpumps):
+    position= fuel = 0
+    for i in range(len(petrolpumps)):
+        fuel += petrolpumps[i][0]-petrolpumps[i][1]
+        if fuel < 0:
+            position = i+1
+            fuel=0
+    return position
