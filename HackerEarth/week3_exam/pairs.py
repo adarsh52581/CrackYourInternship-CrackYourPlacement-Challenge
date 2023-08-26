@@ -4,9 +4,9 @@ def pairs(k, arr):
  # Write your code here
     count = 0
     arr.sort()
-    set = {}
+    set1 = {}
     for i in range(len(arr)):
-      if arr[i]-k in set:
-           count+=1
-    set[arr[i]]=arr[i]-k
+        if arr[i]-k in set1:
+            count+=1
+        set1[arr[i]]=arr[i]-k
     return count
